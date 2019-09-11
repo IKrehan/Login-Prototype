@@ -15,6 +15,7 @@ def check_hand(e):
         canvas.config(cursor="")
         # tendi nada, stackoverflow deve explicações
 
+
 def login(e):
     if not username.get() or not password.get():
         canvas.itemconfig(warning, text="Please complete all fields!", fill="red")
@@ -24,7 +25,7 @@ def login(e):
         pass_check = password.get()
 
         # Load and check the users and passwords
-        data_file = open("DATA.txt", "r")
+        data_file = open("Data/DATA.txt", "r")
         for line in data_file:
             pos = line.find(":")  # ':' is the division between user and password
             user_crypto = line[:pos]
@@ -69,7 +70,7 @@ def registration(e):
 
         else:
             if password_reg.get() == password_confirm.get():
-                data_file = open("DATA.txt", "r")
+                data_file = open("Data/DATA.txt", "r")
                 for line in data_file:
                     pos = line.find(":")
                     user_crypto = line[:pos]
@@ -80,7 +81,7 @@ def registration(e):
                     else:
                         canvas_register.itemconfig(warn, text="Sucess!", fill="green")
 
-                        insert_data = open("DATA.txt", "a")
+                        insert_data = open("Data/DATA.txt", "a")
                         insert_data.write(data_login)
                         insert_data.close()
                 data_file.close()
@@ -141,10 +142,10 @@ canvas.pack()
 
 # Open images 
 # Paths can be differents in others computers
-background = PhotoImage(file="~/Documents/Projetos/Login/back.png")
-user_icon_entry = PhotoImage(file="~/Documents/Projetos/Login/man.png")
-pass_icon_entry = PhotoImage(file="~/Documents/Projetos/Login/lock.png")
-user_icon = PhotoImage(file="~/Documents/Projetos/Login/user.png")
+background = PhotoImage(file="Data/imgs/back.png")
+user_icon_entry = PhotoImage(file="Data/imgs/man.png")
+pass_icon_entry = PhotoImage(file="Data/imgs/lock.png")
+user_icon = PhotoImage(file="Data/imgs/user.png")
 
 # Background
 canvas.create_image(0, 0, image=background, anchor=NW)
